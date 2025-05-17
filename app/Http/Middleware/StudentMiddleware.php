@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CountryMiddleware
+class StudentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,16 @@ class CountryMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-         $array=[
+            $array=[
             'Bangladesh',
             'America',
             'Canada',
             'Africa',
         ];
-        if(in_array($request->country, $array)){
+        if(in_array($request->student, $array)){
             return $next($request);
         }
         return redirect()->to('/');
+
     }
 }

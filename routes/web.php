@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Example\FirstController;
+use App\Http\Controllers\LearnController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,21 +17,50 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(app());
     return view('welcome');
 });
-Route::get('/kjkjkdjkfjdkjkejiek',function(){
-    return view("about");
-})->name('about.us');
+// Route::get('/kjkjkdjkfjdkjkejiek',function(){
+//     return view("about");
+// })->name('about.us');
+
+// Route::get('/contact',function(){
+//     return view("contact");
+// });
+
+Route::get('/contact',[FirstController::class,'index']);
+// Route::get('/about',LearnController::class)->name('about.us');
+
+Route::post('/store/contact',[FirstController::class,'store'])->name('store.contact');
 
 
 
 
 
-Route::get('/contact',function(){
-    return view("contact");
+Route::get('/test',function(Request $request){
+    $request->session()->put('age','24');
+    //session(['name'=>'Learnhunt']);
 });
 
+Route::get('/all',function(Request $request){
+    return $request->session()->all();
+});
+
+
+
+//__Form request route__//
+Route::post('/student/store',[FirstController::class, 'StudentStore'])->name('student.store');
+
+
+
+
+
+// Route::get('/country',function(){
+//     return view('country');
+// })->middleware('country');
+
+Route::get('/student',function(){
+    return view('student')->middleware('student');
+});
 
 
 Route::get('/dashboard', function () {

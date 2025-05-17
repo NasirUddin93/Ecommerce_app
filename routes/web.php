@@ -15,19 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // dd(app());
     return view('welcome');
 });
 Route::get('/kjkjkdjkfjdkjkejiek',function(){
     return view("about");
 })->name('about.us');
 
-
-
-
-
 Route::get('/contact',function(){
     return view("contact");
 });
+
+Route::get('/country',function(){
+    return view('country');
+})->middleware('country');
+
 
 
 

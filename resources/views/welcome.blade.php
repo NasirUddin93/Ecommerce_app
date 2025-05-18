@@ -31,8 +31,6 @@
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
                     <ul class="list">
                         <li class="list-item"><a href="">Home</a></li>
-                        <li class="list-item"><a href="{{route('about.us')}}">About</a></li>
-                        <li class="list-item"><a href="{{URL::to('contact')}}">Contact</a></li>
                         <li class="list-item"><a href="">Photo</a></li>
                         <li class="list-item"><a href="">Gellary</a></li>
                     </ul>

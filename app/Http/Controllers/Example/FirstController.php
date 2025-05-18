@@ -13,8 +13,13 @@ class FirstController extends Controller
         return view('contact');
     }
     //__Request for form data__//
-    public function StudentStore(Request $request)
+    public function store(Request $request)
     {
+            $validated = $request->validate([
+                'name' => 'required|max:55',
+                'email' => 'required|max:80',
+                'password' => 'required|min:6|max:12',
+            ]);
         dd($request->all());
     }
 

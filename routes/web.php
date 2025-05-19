@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Example\FirstController;
 use App\Http\Controllers\LearnController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -16,9 +17,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+Route::any('/', function () {
     return view('welcome');
 });
+
+
 // Route::get('/kjkjkdjkfjdkjkejiek',function(){
 //     return view("about");
 // })->name('about.us');
@@ -33,8 +36,9 @@ Route::get('/contact',[FirstController::class,'index']);
 Route::post('/store/contact',[FirstController::class,'store'])->name('store.contact');
 
 
-
-
+// Route::get('/user',[UserController::class,'index']);
+// Route::put('/user/{id}',[UserController::class,'update']);
+Route::redirect('/user','/about',301);
 
 Route::get('/test',function(Request $request){
     $request->session()->put('age','24');

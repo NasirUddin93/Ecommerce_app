@@ -21,6 +21,13 @@ Route::any('/', function () {
     return view('welcome');
 });
 
+Route::get('/test',function(Request $request){
+    Log::info('this is your age'.rand(1,30));
+    return redirect()->to('/');
+});
+
+
+
 
 // Route::get('/kjkjkdjkfjdkjkejiek',function(){
 //     return view("about");
